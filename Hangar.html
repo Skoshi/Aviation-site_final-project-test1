@@ -1,0 +1,816 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+
+		<!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame
+		Remove this if you use the .htaccess -->
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+		<!--screen shots from F4BMS flight simulation. Please visit http://http://www.bmsforum.org-->
+		<title>F-16 Load out mockup_Spike Final Project June 2015 DaVinci Coders javaScript</title>
+		<meta name="F16 load out content=">
+		<meta name="author" content="HTsao">
+
+		<meta name="viewport" content="width=device-width; initial-scale=1.0">
+		<link href="GlassPitstylesheet.css" rel="stylesheet" type="text/css" />
+		<script src="resources/js/raphael.2.1.0.min.js"></script><!--link to justGage .js file-->
+        <script src="resources/js/justgage.1.0.1.min.js"></script><!--link to justGage .js file-->
+        <!--free gauges from justGauge.com--->
+         <script src="resources/jssheets/raphael.2.1.0.min.js"></script><!--link to justGage .js file-->
+        <script src="resources/jssheets/justgage.1.0.1.min.js"></script><!--link to justGage .js file-->  
+         <script src="resources/jssheets/jquery-2.1.4.js"></script><!--for jQuery-->
+         <script src="resources/jssheets/jquery-ui 1.11.4.js"></script><!--for jQuery UI library on this pc-->
+        <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"type="text/javascript"></script><!--for link to jQuery UI external library-->
+
+         <script src="resources/jssheets/spikesheet05202015.js"></script><!--link to spikesheet05202015.js file. keep this syntax underneath justGauge's js links -->
+        <script type="text/javascript">
+        </script>
+		<style>
+		    body{font-family: sans-serif;}
+		        
+		    
+			td.color1{font-size: 10px;  color: white;}
+			#r1_station9 {table-layout:fixed; width:50px; height:50px; overflow: hidden; word-wrap: break-word;}
+			#r1_station8 {table-layout:fixed; width:50px; height:50px; overflow: hidden; word-wrap: break-word;}
+			#r1_station7 {table-layout:fixed; width:50px; height:50px; overflow: hidden; word-wrap: break-word;}
+			#r1_station6 {table-layout:fixed; width:70px; height:50px; overflow: hidden; word-wrap: break-word;}
+			#r1_station5 {table-layout:fixed; width:173px; height:50px; overflow: hidden;word-wrap: break-word;}
+			#r1_station4 {table-layout:fixed; width:70px; height:50px; overflow: hidden; word-wrap: break-word;}
+			#r1_station3 {table-layout:fixed; width:50px; height:50px; overflow: hidden; word-wrap: break-word;}
+			#r1_station2 {table-layout:fixed; width:50px; height:50px; overflow: hidden; word-wrap: break-word;}
+			#r1_station1 {table-layout:fixed; width:50px; height:50px; overflow: hidden; word-wrap: break-word;}
+			
+			
+			/* image raised effect*/
+			 #loadoutpic {
+   
+    -webkit-box-shadow: 2px 3px 8px #444;
+    -moz-box-shadow: 2px 3px 8px #444;
+    box-shadow: 2px 3px 8px #444;
+    }
+			
+			/* image raised effect ends*/
+			
+  
+		</style>
+		
+	</head>
+
+	<body style=" background-color: black">
+	    <div id="wrapper"><!--wrap entire page-->
+	  <!--for this hangar html, set table width as % in order to work with f16 load out tables-->
+ <table id="patch_table" width="100%" align="center">
+
+     <tr><td>
+    <h3 id="homeairbase_h3" align="center" style="color: #fed230">48TH FT SQ<br><a class="no_blank" href="index.html" ><img id="imgtest" width="100px" height="110px" align="center" src="img/patch_1.png" /></a><br>THE SOUND OF FREEDOM</h3>
+
+  </td></tr>
+ </table>
+	    
+		
+ 
+<!--top message board table starting here-->
+<table id="eyebrow_messageboard" width="1350px" align="center" height="40px" border="1">
+    <tr id="eyebrow_messagerow" class="class_blue" height="40px">
+        
+        <td id="ejection_signtd" width="60px"> <img id="ejection_sign_img" onclick="closeCurrentpage();" alt="Ejection Sign" src="img/ejection seat sign.png" width="55px" height="48px" /></td>
+        <td id="eyebrow_td_1" class="greybackgroundc" width="123px"><p id="eyebrow_iconbase" align="center"><a class="no_blank" href="index.html" ><input id="airbasebut" class="eyebrowbtns" type="button" value="HOME AIR BASE"/></a></P></td>
+        <td id="eyebrow_td_2" class="greybackgroundc" width="123px"><p id="eyebrow_iconbase" align="center"><a class="no_blank" href="Hangar.html"><input id="hangarbut" class="eyebrowbtns" type="button" value="HANGAR"/></a></P></td>
+        
+        <td id="eyebrow_td_middle" width="700px"><p id="eyebrow_parap" class="eyebrow_paraclass"></p></td>
+        
+        <td id="eyebrow_td_3" class="greybackgroundc" width="123px"><p id="eyebrow_iconbase" align="center"><a class="no_blank" href="powerplant.html"><input id="powerplantbut" class="eyebrowbtns" type="button" value="POWER PLANT"/></a></P></td>
+        <td id="eyebrow_td_4" class="greybackgroundc" width="123px"><p id="eyebrow_iconbase" align="center"><a class="no_blank" href="Pilotsclub.html"><input id="pilotsclubbut" class="eyebrowbtns" type="button" value="PILOTS CLUB"/></a></P></td>
+        <td id="ejection_signtd" width="60px"> <img id="ejection_sign_img" onclick="closeCurrentpage()" alt="Ejection Sign" src="img/ejection seat sign.png" width="55px" height="48px" /></td>
+    </tr>
+    
+</table><!--top message board table ends here-->
+
+
+<p id="hangar_h2" class=""  align="center" style="color: #fed230; font-size: 1em" style="padding: 0; margin: 0">F-16 Block 50 Viper Load Out</p>
+		
+		<table style="margin-top: 0px; margin-bottom: 0px"  align="center" width="614px" height="35px"><!--table for first row of buttons-->
+			<tr>
+				<td id="aa1" align="center"><input type="button" id="aabutton1" onclick="airtoair1()" value="A to A 1"/></td>
+                <td id="aa2" align="center"><input type="button" id="aabutton2" onclick="airtoair2()" value="A to A 2"/></td>
+                <td id="aa3" align="center"><input type="button" id="aabutton3" onclick="airtoair3()" value="A to A 3"/></td>
+                <td id="cle" align="center"><input type="button" id="aabuttoncle" onclick="empty_butshowcleangross()" value="Clean"/></td>
+                <td id="ag1" align="center"><input type="button" id="agbutton1" onclick="airtoground1()" value="A to G 1"/></td>
+                <td id="ag2" align="center"><input type="button" id="agbutton2" onclick="airtoground2()" value="A to G 2"/></td>
+                <td id="ag3" align="center"><input type="button" id="agbutton3" onclick="airtoground3()" value="A to G 3"/></td>
+			</tr>
+			
+		</table><!--table ends-->
+		<table id="weightdisplay" style="table-layout: fixed; margin-top: 10px; margin-bottom: 0px"  align="center" width="614px" height="35px" border="1px"><!--table for weight data-->
+		    <tr>
+		       <td id="maxweight" width="128px"><font color="#84f924">Max Weight: 42300 Ib</font></td> 
+		       <td id="cleanweight" width="128px"><font color="#84f924">Clean Weight: 20300 Ib</font></td> 
+		       <td id="munitions" width="128px"><font color="#84f924">Munitions Weight: 0 Ib </font></td>
+		       <td id="fuel" width="128px"><font color="#84f924">Fuel Weight: 5924 Ib </font></td>
+		       <td id="grossweight" width="128px"><font color="#84f924">Gross Weight:</font>
+		           <form id="grossform">
+		               <input id="grossnumber" type="text" size="5px" value="" style="font-family: sans-serif; font-size: 14px; color:#2b8ffa"/>
+		               
+		           </form>
+		       </td> 
+		    </tr>
+		</table><!--table ends-->
+		
+		<table id="loadout_showroom"  style="margin-top: 0px; margin-bottom: 0px" align="center" width="625px" height="349px"><!--pic table-->
+		<tr><td align="center">
+		<img id="loadoutpic" src="img/f16empty.png"  alt="f16"  usemap="#f16nosecone"  ismap="ismap" border="0">
+		</td></tr>		
+		</table><!--pic table ends-->
+		
+		    	
+			
+			<h3 id="load_table_h3" align="center" style="color: #84f924; margin-top: 0px">Clean</h3>
+		
+		
+			
+		<table style="table-layout: fixed; margin-bottom: 10px" id="loadout_table" align="center" width="614px" height="50px" border="1px"><!--keep table-layout-->
+		<tr id="row1">
+		<td id="r1_station9" class="color1" align="center">*</td>	
+		<td id="r1_station8" class="color1" align="center">*</td>
+		<td id="r1_station7" class="color1" align="center">*</td>	
+		<td id="r1_station6" class="color1" align="center">*</td>
+		<td id="r1_station5" class="color1" align="center">*</td>	
+		<td id="r1_station4" class="color1" align="center">*</td>
+		<td id="r1_station3" class="color1" align="center">*</td>	
+		<td id="r1_station2" class="color1" align="center">*</td>
+		<td id="r1_station1" class="color1" align="center">*</td>
+		</tr>
+			
+			
+		<tr id="row2">
+		<td id="r2_station9" class="color1" width="50px" height="50px" align="center">*</td>   
+        <td id="r2_station8" class="color1" width="50px" height="50px" align="center">*</td> 
+        <td id="r2_station7" class="color1" width="50px" height="50px" align="center">*</td>  
+        <td id="r2_station6" class="color1" width="95px" height="50px" align="center">*</td> 
+        <td id="r2_station5" class="color1" width="170px" height="50px" align="center">*</td>     
+        <td id="r2_station4" class="color1" width="95px" height="50px" align="center">*</td> 
+        <td id="r2_station3" class="color1" width="50px" height="50px" align="center">*</td>  
+        <td id="r2_station2" class="color1" width="50px" height="50px" align="center">*</td> 
+        <td id="r2_station1" class="color1" width="50px" height="50px" align="center">*</td> 
+		</tr>
+		
+		<tr id="row3">
+		<td id="r3_station9" class="color1" width="50px" height="50px" align="center">*</td> 
+		<td id="r3_station8" class="color1" width="50px" height="50px" align="center">*</td> 
+		<td id="r3_station7" class="color1" width="50px" height="50px" align="center">*</td> 
+		<td id="r3_station6" class="color1" width="95px" height="50px" align="center">*</td> 
+		<td id="r3_station5" class="color1" width="170px" height="50px" align="center">*</td> 	
+		<td id="r3_station4" class="color1" width="95px" height="50px" align="center">*</td> 
+		<td id="r3_station3" class="color1" width="50px" height="50px" align="center">*</td> 
+		<td id="r3_station2" class="color1" width="50px" height="50px" align="center">*</td> 
+		<td id="r3_station1" class="color1" width="50px" height="50px" align="center">*</td> 					
+		</tr>
+			
+		<tr id="row4">
+		<td id="r4_station9" class="color1" width="50px" height="50px" align="center">*</td> 
+		<td id="r4_station8" class="color1" width="50px" height="50px" align="center">*</td> 
+		<td id="r4_station7" class="color1" width="50px" height="50px" align="center">*</td> 
+		<td id="r4_station6" class="color1" width="95px" height="50px" align="center">*</td> 
+		<td id="r4_station5" class="color1" width="170px" height="50px" align="center">*</td> 	
+		<td id="r4_station4" class="color1" width="95px" height="50px" align="center">*</td> 
+		<td id="r4_station3" class="color1" width="50px" height="50px" align="center">*</td> 	
+		<td id="r4_station2" class="color1" width="50px" height="50px" align="center">*</td> 
+		<td id="r4_station1" class="color1" width="50px" height="50px" align="center">*</td> 
+		
+		</tr>
+		<tr id="row5">
+		<td id="r5_station9" class="color1" width="50px" height="50px" align="center">*</td> 	
+		<td id="r5_station8" class="color1" width="50px" height="50px" align="center">*</td> 
+		<td id="r5_station7" class="color1" width="50px" height="50px" align="center">*</td> 	
+		<td id="r5_station6" class="color1" width="95px" height="50px" align="center">*</td> 
+		<td id="r5_station5" class="color1" width="170px" height="50px" align="center">*</td> 	
+		<td id="r5_station4" class="color1" width="95px" height="50px" align="center">*</td> 
+		<td id="r5_station3" class="color1" width="50px" height="50px" align="center">*</td> 	
+		<td id="r5_station2" class="color1" width="50px" height="50px" align="center">*</td> 
+		<td id="r5_station1" class="color1" width="50px" height="50px" align="center">*</td> 
+		</tr>
+		</table>
+		
+<!--Fuel Comparing table-->
+<table style="table-layout: fixed; margin-bottom: 10px" id="fuel_table" align="center" width="800px" height="30px" border="1px">
+
+        
+      <tr height="50px">
+          <td id="clefueltable" valign="top"><font color="#84f924">Clean Load Fuel Burn</font></td>
+        <td id="clethrottle" valign="top"><font color="#84f924">Clean Load Throttle Level</font><BR>
+        <form id="clefuelform" align="top" style="margin-top: 0px">
+            <select id="clethrottle_se" name="clethrottleadjust" onchange="cleThrottle_select()"><!--onchange will call function-->
+                <option id="aacleplease" value="clepleaseselect">Please Select</option>
+                <option id="aacleshowall" value="cleshowall">Show all data</option>
+                <option id="aacle10%" value="0"> Throttle Idle</option>
+                <option id="aacle20%" value="1">Throttle 20%</option>
+                <option id="aacle30%" value="2">Throttle 30%</option>
+                <option id="aacle40%" value="3">Throttle 40%</option>
+                <option id="aacle150%" value="4">Throttle 50%</option>
+                <option id="aacle160%" value="5">Throttle 60%</option>
+                <option id="aacle170%" value="6">Throttle 70%</option>
+                <option id="aacle180%" value="7">Throttle 80%</option>
+                <option id="aacle190%" value="8">Throttle 90%</option>
+                <option id="aacle100%" value="9">Throttle Military</option>
+        </select></form></td><!--td ends-->
+        
+        <td id="aa2fueltable" valign="top"><font color="#84f924">A-A 2 Fuel Burn</font></td>
+        <td id="aa2throttle" valign="top"><font color="#84f924">A-A 2 Throttle Level</font><BR>
+        <form id="aa2fuelform" align="top" style="margin-top: 0px">
+            <select id="aa2throttle_se" name="aa2throttleadjust" onchange="aa2Throttle_select()"><!--onchange will call function-->
+                <option id="aa2please" value="aa2pleaseselect">Please Select</option>
+                <option id="aa2showall" value="aa2showall">Show all data</option>
+                <option id="aa2_10%" value="0"> Throttle Idle</option>
+                <option id="aa2_20%" value="1">Throttle 20%</option>
+                <option id="aa2_30%" value="2">Throttle 30%</option>
+                <option id="aa2_40%" value="3">Throttle 40%</option>
+                <option id="aa2_50%" value="4">Throttle 50%</option>
+                <option id="aa2_60%" value="5">Throttle 60%</option>
+                <option id="aa2_70%" value="6">Throttle 70%</option>
+                <option id="aa2_80%" value="7">Throttle 80%</option>
+                <option id="aa2_90%" value="8">Throttle 90%</option>
+                <option id="aa2_100%" value="9">Throttle Military</option>
+        </select></form></td><!--td ends-->
+        
+ </tr>            
+ <tr> 
+  <td id="clefuelshow"><font color="White">clean load fuel data</font></td><!--this td is underneath the select drop down aaclefuel-->
+  <td id="clepercentshow"></td><!--show throttle percentage-->
+  <td id="aa2fuelshow"><font color="White">a-a 2 fuel data</font></td>
+  <td id="aa2percentshow"></td>
+ </tr>
+</table><br><br><!--fuel comparing table ends-->
+
+
+<!--toggle engine sound starts below, *******how about use a new window for showing the engine?*******
+<p id="toggleengine_switch_para" style="background-color: #fed230" align="center">
+<img id="toggle" align="center" onclick="toggleEnginesound()" src="img/toggle_off.png" ><!--toggle engine sound on and off
+</p>
+<p id="photocourtesy" style="color: white"></p>
+<img id="f110engine" style="border: none, outline: none"; src="">
+
+<audio id="mainpowerswitch_sound" src="img/toggle_off_mainpower.mp3" type="audio/mpeg"></audio>
+<audio id="engine_sound" src="img/f16_engineshotdown.mp3" type="audio/mpeg"></audio>-->
+
+
+<!--map starts here-->
+<map name="f16nosecone">
+
+<area shape="rect" coords="273, 64, 336, 103" href="http://www.f-16.net/" alt="F16.net" target="_blank">
+
+</map>
+		
+		<script type="text/javascript">//keep script tag here
+		//function toggleEnginesound()//moved toggle engine sound section to js sheet for Power Plant site
+		//{
+		    //var courtesy = document.getElementById("photocourtesy");
+		   // var image_of_f110 = document.getElementById("f110engine");
+		    //var image_of_togggle = document.getElementById("toggle");
+		    //var mainpower_switch_sound = document.getElementById("mainpowerswitch_sound");
+		    //var enginesound_startup_shutdown = document.getElementById("engine_sound");
+		   // if (toggle.src.match("toggle_on.png"))
+		   // {toggle.src="img/toggle_off.png";
+		   // image_of_f110.style.visibility="hidden";
+		    //courtesy.style.visibility="hidden";
+		    //mainpowerswitch_sound.src="img/toggle_off_mainpower.mp3";
+		  // mainpower_switch_sound.play();
+		  // engine_sound.src="img/f16_engineshotdown.mp3";
+		   // engine_sound.play();
+		   // }
+		   // else
+		   // {
+		        //toggle.src="img/toggle_on.png";
+		       // image_of_f110.style.visibility="visible";
+               // courtesy.style.visibility="visible";
+		       // image_of_f110.src="img/F110-burner_pic from Lockheed Martin.jpg";
+		        
+		       // mainpowerswitch_sound.src="img/toggle_on_mainpower.mp3";
+		       // mainpower_switch_sound.play();
+		       // engine_sound.src="img/f16_enginestartup.mp3";
+		        // courtesy.innerHTML="photo courtesy of Lockheed Martin";
+           // engine_sound.play();
+		   // }
+		//}
+/////////////////fuel starting here//////////
+//if else if action will activate functions either cleFuel_forloopshowall() or cleFuel_forloopshowindividual()
+       function cleThrottle_select()
+       {
+           var cleThrottle_v = document.getElementById("clethrottle_se").value;
+           if (cleThrottle_v=="cleshowall")          
+           {document.getElementById("clefuelshow").innerHTML=cleFuel_forloopshowall().clefueltext}
+           else if(cleThrottle_v=="0")
+           {document.getElementById("clefuelshow").innerHTML=cleFuel_forloopshowindividual().cleFuel_inditext}
+           else if(cleThrottle_v=="1")
+           {document.getElementById("clefuelshow").innerHTML=cleFuel_forloopshowindividual().cleFuel_inditext}
+           else if(cleThrottle_v=="2")
+           {document.getElementById("clefuelshow").innerHTML=cleFuel_forloopshowindividual().cleFuel_inditext}
+           else if(cleThrottle_v=="3")
+           {document.getElementById("clefuelshow").innerHTML=cleFuel_forloopshowindividual().cleFuel_inditext}
+           else if(cleThrottle_v=="4")
+           {document.getElementById("clefuelshow").innerHTML=cleFuel_forloopshowindividual().cleFuel_inditext}
+           else if(cleThrottle_v=="5")
+           {document.getElementById("clefuelshow").innerHTML=cleFuel_forloopshowindividual().cleFuel_inditext}
+           else if(cleThrottle_v=="6")
+           {document.getElementById("clefuelshow").innerHTML=cleFuel_forloopshowindividual().cleFuel_inditext}
+           else if(cleThrottle_v=="7")
+           {document.getElementById("clefuelshow").innerHTML=cleFuel_forloopshowindividual().cleFuel_inditext}
+           else if(cleThrottle_v=="8")
+           {document.getElementById("clefuelshow").innerHTML=cleFuel_forloopshowindividual().cleFuel_inditext}
+           else if(cleThrottle_v=="9")
+           {document.getElementById("clefuelshow").innerHTML=cleFuel_forloopshowindividual().cleFuel_inditext}
+      }
+
+
+///////////
+//for loop to generate Clean load out plus all throttle level and fuel burn data together
+
+		function cleFuel_forloopshowall()
+    {
+        var clefueltext ="";
+        var i;
+        for (i=0; i< 5925; i=i+592.4)
+     
+       {
+           clefueltext +="<br>"+"burn"+" "+i.toFixed(2)+" "+"Ib"+" "+"per hour"; //round to decimal second place
+       }
+        document.getElementById("clefuelshow").style.color= "white";
+        document.getElementById("clefuelshow").innerHTML= clefueltext;
+        
+         var cle_allpercenttext="";//show all Clean load out throttle percent
+           var x;
+           for(x=0; x<110; x=x+10)
+           
+       {
+          cle_allpercenttext +="<br>"+"at"+" "+x+" "+"%"+" "+"throttle";
+           
+       }
+           document.getElementById("clepercentshow").style.color="white";
+           document.getElementById("clepercentshow").innerHTML= cle_allpercenttext;
+           
+       }
+       
+       
+       
+       function cleFuel_forloopshowindividual()//need var for text, need var for array, need var to grab array's length, need var i
+       {
+           
+           var cleFuel_inditext="";
+           var cleFuelflowindi = ["592.40", "1184.80", "1777.20", "2369.60", "2962.00", "3554.40", "4146.80", "4739.20", "5331.60", "5924.00"];
+           var cleFuelflowindi_length = cleFuelflowindi.length;
+           var i=document.getElementById("clethrottle_se").value;
+           
+           
+           do {cleFuel_inditext +="<br>"+"fuel burn at"+" "+cleFuelflowindi[i]+" "+"Ib"+" "+"per hour";
+          i=i.value; //do not change this part, it links to the result of select id clethrottle_se
+            }
+           
+           while (i<cleFuelflowindi_length)
+           document.getElementById("clefuelshow").style.color="white";
+           document.getElementById("clefuelshow").innerHTML= cleFuel_inditext;
+           document.getElementById("clepercentshow").innerHTML="";
+      }
+      
+      //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+      
+      function aa2Throttle_select()//not working on aa1 for now since it's fuel total is the same as clean load
+       {
+           var aa2Throttle_v = document.getElementById("aa2throttle_se").value;
+           if (aa2Throttle_v=="aa2showall")          
+           {document.getElementById("aa2fuelshow").innerHTML=aa2Fuel_forloopshowall().aa2fueltext}
+           else if(aa2Throttle_v=="0")
+           {document.getElementById("aa2fuelshow").innerHTML=aa2Fuel_forloopshowindividual().aa2Fuel_inditext}
+           else if(aa2Throttle_v=="1")
+           {document.getElementById("aa2fuelshow").innerHTML=aa2Fuel_forloopshowindividual().aa2Fuel_inditext}
+           else if(aa2Throttle_v=="2")
+           {document.getElementById("aa2fuelshow").innerHTML=aa2Fuel_forloopshowindividual().aa2Fuel_inditext}
+           else if(aa2Throttle_v=="3")
+           {document.getElementById("aa2fuelshow").innerHTML=aa2Fuel_forloopshowindividual().aa2Fuel_inditext}
+           else if(aa2Throttle_v=="4")
+           {document.getElementById("aa2fuelshow").innerHTML=aa2Fuel_forloopshowindividual().aa2Fuel_inditext}
+           else if(aa2Throttle_v=="5")
+           {document.getElementById("aa2fuelshow").innerHTML=aa2Fuel_forloopshowindividual().aa2Fuel_inditext}
+           else if(aa2Throttle_v=="6")
+           {document.getElementById("aa2fuelshow").innerHTML=aa2Fuel_forloopshowindividual().aa2Fuel_inditext}
+           else if(aa2Throttle_v=="7")
+           {document.getElementById("aa2fuelshow").innerHTML=aa2Fuel_forloopshowindividual().aa2Fuel_inditext}
+           else if(aa2Throttle_v=="8")
+           {document.getElementById("aa2fuelshow").innerHTML=aa2Fuel_forloopshowindividual().aa2Fuel_inditext}
+           else if(aa2Throttle_v=="9")
+           {document.getElementById("aa2fuelshow").innerHTML=aa2Fuel_forloopshowindividual().aa2Fuel_inditext}
+      }
+      
+      
+      function aa2Fuel_forloopshowall()//not working on aa1 for now since it's fuel total is the same as clean load
+    {
+        var aa2fueltext ="";
+        var aa2;
+        for (aa2=0; aa2< 7965; aa2=aa2+796.4)
+     
+       {
+           aa2fueltext +="<br>"+"burn"+" "+aa2.toFixed(2)+" "+"Ib"+" "+"per hour"; //round to decimal second place
+       }
+        document.getElementById("aa2fuelshow").style.color= "white";
+        document.getElementById("aa2fuelshow").innerHTML= aa2fueltext;
+        
+         var aa2_allpercenttext="";//show all aa2 load out throttle percent
+           var x;
+           for(x=0; x<110; x=x+10)
+           
+       {
+          aa2_allpercenttext +="<br>"+"at"+" "+x+" "+"%"+" "+"throttle";
+           
+       }
+           document.getElementById("aa2percentshow").style.color="white";
+           document.getElementById("aa2percentshow").innerHTML= aa2_allpercenttext;
+           
+       }
+       
+       
+       
+       function aa2Fuel_forloopshowindividual()//need var for text, need var for array, need var to grab array's length, need var i
+       {
+           
+           var aa2Fuel_inditext="";
+           var aa2Fuelflowindi = ["796.40", "1592.80", "2389.20", "3185.60", "3982.00", "4778.40", "5574.80", "6371.20", "7167.60", "7964.00"];
+           var aa2Fuelflowindi_length = aa2Fuelflowindi.length;
+           var aa2=document.getElementById("aa2throttle_se").value;
+           
+           
+           do {aa2Fuel_inditext +="<br>"+"fuel burn at"+" "+aa2Fuelflowindi[aa2]+" "+"Ib"+" "+"per hour";
+          aa2=aa2.value; //do not change this part, it links to the result of select id aa2throttle_se
+            }
+           
+           while (aa2<aa2Fuelflowindi_length)
+           document.getElementById("aa2fuelshow").style.color="white";
+           document.getElementById("aa2fuelshow").innerHTML= aa2Fuel_inditext;
+           document.getElementById("aa2percentshow").innerHTML="";
+      }
+		
+		 ////////////////////////////////////////////////////////////
+        ////////loadout weight calculations starts here
+		
+		var cleanweight = 20300;//clean weight is known number
+             
+             
+         function grossweight (muniweight, fuel)
+         {
+           this.muniweight=muniweight;
+           this.fuel=fuel;
+           this.gross = grossweighttotal;          
+         }
+         
+         
+         function grossweighttotal()
+         {
+             var grosscalcu = cleanweight+this.muniweight+this.fuel;
+             return grosscalcu;
+         }
+         
+         var viperaa1gross = new grossweight (1508, 5924);//give muni and fuel weight
+       
+        //document.write(viperaa1gross.gross());//place document.write underneath the var viperaa1gross
+        
+        var viperaa2gross = new grossweight (2800, 7964);
+        
+        var viperaa3gross = new grossweight (3448, 10956);
+        
+        var viperag1gross = new grossweight (5128, 7964);
+         //alert(viperag1gross.gross());
+        
+        var viperag2gross = new grossweight (10066, 7964);
+        
+        var viperag3gross = new grossweight (7348, 10956);
+        
+        var vipercleangross = new grossweight (0, 5924);
+		/////////////////////
+		
+		document.getElementById("cle").onmouseover = function(){empty()};
+		
+
+        document.getElementById("aa1").onmouseover = function(){airtoair1()};
+		document.getElementById("aa1").onmouseout = function(){airtoair1_empt()};
+		
+       
+        function airtoair1()
+            {
+             document.getElementById("loadoutpic").src="img/f16airtoair1.png";
+             document.getElementById("load_table_h3").textContent="A-A Load Out 1";
+             document.getElementById("aabutton1").style.backgroundColor='#7ec2ef';
+             document.getElementById("munitions").style.color="#e8f2fd";
+             document.getElementById("munitions").textContent="Munitions Weight: 1508 Ib";
+             document.getElementById("fuel").style.color="#e8f2fd";
+             document.getElementById("fuel").textContent="Fuel Weight: 5924 Ib";
+             document.getElementById("r1_station9").textContent="AIM-9";              
+             document.getElementById("r2_station8").textContent="AIM-9";
+             document.getElementById("r3_station7").textContent="AIM-9";
+             document.getElementById("r1_station1").textContent="AIM-9";
+             document.getElementById("r2_station2").textContent="AIM-9";
+             document.getElementById("r3_station3").textContent="AIM-9";
+            document.getElementById("grossnumber").value=viperaa1gross.gross();
+            }
+            
+            function airtoair1_empt()
+            {
+              document.getElementById("loadoutpic").src="img/f16empty.png";
+             document.getElementById("load_table_h3").textContent="Clean";
+             document.getElementById("aabutton1").style.backgroundColor='#ffffff';  
+             document.getElementById("r1_station9").textContent="*"; 
+             document.getElementById("r2_station8").textContent="*";             
+             document.getElementById("r3_station7").textContent="*"; 
+             document.getElementById("r1_station1").textContent="*";
+             document.getElementById("r2_station2").textContent="*";
+             document.getElementById("r3_station3").textContent="*"; 
+             
+             document.getElementById("munitions").style.color="#84f924";
+             document.getElementById("munitions").textContent="Munitions Weight: 0 Ib";
+             document.getElementById("fuel").style.color="#84f924";
+             document.getElementById("fuel").textContent="Fuel Weight: 5924 Ib";
+             document.getElementById("grossnumber").value="";
+               
+            }
+        
+        document.getElementById("aa2").onmouseover = function(){airtoair2()};
+        document.getElementById("aa2").onmouseout = function(){airtoair2_empt()};
+        
+       
+        function airtoair2()
+            {
+             document.getElementById("loadoutpic").src="img/f16airtoair2.png";
+             document.getElementById("load_table_h3").textContent="A-A Load Out 2";
+             document.getElementById("aabutton2").style.backgroundColor='#7ec2ef';
+             
+             document.getElementById("r1_station9").textContent="AIM-120";              
+             document.getElementById("r2_station8").textContent="AIM-120";
+             document.getElementById("r3_station7").textContent="AIM-120";
+             document.getElementById("r5_station5").textContent="370 G Fuel Tank";
+             document.getElementById("r1_station1").textContent="AIM-120";
+             document.getElementById("r2_station2").textContent="AIM-120";
+             document.getElementById("r3_station3").textContent="AIM-120";
+             document.getElementById("munitions").style.color="#e8f2fd";
+             document.getElementById("munitions").textContent="Munitions Weight: 2800 Ib";
+             document.getElementById("fuel").style.color="#e8f2fd";
+             document.getElementById("fuel").textContent="Fuel Weight: 7964 Ib";
+             document.getElementById("grossnumber").value=viperaa2gross.gross();          
+            
+            }
+            
+            function airtoair2_empt()
+            {
+             document.getElementById("loadoutpic").src="img/f16empty.png";
+             document.getElementById("load_table_h3").textContent="Clean";
+             document.getElementById("aabutton2").style.backgroundColor='#ffffff';  
+             document.getElementById("r1_station9").textContent="*"; 
+             document.getElementById("r2_station8").textContent="*";             
+             document.getElementById("r3_station7").textContent="*"; 
+             document.getElementById("r5_station5").textContent="*";
+             document.getElementById("r1_station1").textContent="*";
+             document.getElementById("r2_station2").textContent="*";
+             document.getElementById("r3_station3").textContent="*"; 
+             
+              document.getElementById("munitions").style.color="#84f924";
+             document.getElementById("munitions").textContent="Munitions Weight: 0 Ib";
+             document.getElementById("fuel").style.color="#84f924";
+             document.getElementById("fuel").textContent="Fuel Weight: 5924 Ib";
+             document.getElementById("grossnumber").value="";
+             }
+ 
+        
+        document.getElementById("aa3").onmouseover = function(){airtoair3()};
+        document.getElementById("aa3").onmouseout = function(){airtoair3_empt()};
+       
+        function airtoair3()
+            {
+             document.getElementById("loadoutpic").src="img/f16airtoair3.png";
+             document.getElementById("load_table_h3").textContent="A-A Load Out 3";
+             document.getElementById("aabutton3").style.backgroundColor='#7ec2ef';
+             
+             document.getElementById("r1_station9").textContent="AIM-9";              
+             document.getElementById("r2_station8").textContent="AIM-9";
+             document.getElementById("r3_station7").textContent="AIM-120";
+             document.getElementById("r4_station6").textContent="370 G Fuel Tank";
+             document.getElementById("r4_station4").textContent="370 G Fuel Tank";
+             document.getElementById("r3_station3").textContent="AIM-120";
+             document.getElementById("r2_station2").textContent="AIM-9";
+             document.getElementById("r1_station1").textContent="AIM-9";
+             document.getElementById("munitions").style.color="#e8f2fd";
+             document.getElementById("munitions").textContent="Munitions Weight: 3448 Ib";
+             document.getElementById("fuel").style.color="#e8f2fd";
+             document.getElementById("fuel").textContent="Fuel Weight: 10956 Ib";
+             document.getElementById("grossnumber").value=viperaa3gross.gross();
+             
+             }
+             
+             function airtoair3_empt()
+            {
+             document.getElementById("loadoutpic").src="img/f16empty.png";
+             document.getElementById("load_table_h3").textContent="Clean";
+             document.getElementById("aabutton3").style.backgroundColor='#ffffff';   
+             document.getElementById("r1_station9").textContent="*"; 
+             document.getElementById("r2_station8").textContent="*";             
+             document.getElementById("r3_station7").textContent="*"; 
+             document.getElementById("r4_station6").textContent="*";
+             document.getElementById("r4_station4").textContent="*";
+             document.getElementById("r1_station1").textContent="*";
+             document.getElementById("r2_station2").textContent="*";
+             document.getElementById("r3_station3").textContent="*";
+             
+              document.getElementById("munitions").style.color="#84f924";
+             document.getElementById("munitions").textContent="Munitions Weight: 0 Ib";
+             document.getElementById("fuel").style.color="#84f924";
+             document.getElementById("fuel").textContent="Fuel Weight: 5924 Ib";
+             document.getElementById("grossnumber").value="";  
+            }
+             
+           
+        
+        document.getElementById("ag1").onmouseover = function(){airtoground1()};
+        document.getElementById("ag1").onmouseout = function(){airtoground1_empt()};
+       
+        function airtoground1()
+            {
+             document.getElementById("loadoutpic").src="img/f16airtog1.png";
+             document.getElementById("load_table_h3").textContent="A-G Load Out 1";
+             document.getElementById("agbutton1").style.backgroundColor='#7ec2ef';
+             
+             document.getElementById("r1_station9").textContent="AIM-9";                           
+             document.getElementById("r3_station7").textContent="AGM-65 X 3";
+             document.getElementById("r5_station5").textContent="370 G Fuel Tank";             
+             document.getElementById("r3_station3").textContent="AGM-65 X 3";
+             document.getElementById("r1_station1").textContent="AIM-9";
+             document.getElementById("munitions").style.color="#e8f2fd";
+             document.getElementById("munitions").textContent="Munitions Weight: 5128 Ib";
+             document.getElementById("fuel").style.color="#e8f2fd";
+             document.getElementById("fuel").textContent="Fuel Weight: 7964 Ib";
+             document.getElementById("grossnumber").value=viperag1gross.gross();
+            }
+        
+        function airtoground1_empt()
+            {
+             document.getElementById("loadoutpic").src="img/f16empty.png";
+             document.getElementById("load_table_h3").textContent="Clean";
+             document.getElementById("agbutton1").style.backgroundColor='#ffffff';   
+             document.getElementById("r1_station9").textContent="*";                           
+             document.getElementById("r3_station7").textContent="*";
+             document.getElementById("r5_station5").textContent="*";             
+             document.getElementById("r3_station3").textContent="*";
+             document.getElementById("r1_station1").textContent="*";
+             
+              document.getElementById("munitions").style.color="#84f924";
+             document.getElementById("munitions").textContent="Munitions Weight: 0 Ib";
+             document.getElementById("fuel").style.color="#84f924";
+             document.getElementById("fuel").textContent="Fuel Weight: 5924 Ib";
+             document.getElementById("grossnumber").value="";
+            }
+        
+        
+        
+        document.getElementById("ag2").onmouseover = function(){airtoground2()};
+        document.getElementById("ag2").onmouseout = function(){airtoground2empt()};
+       
+        function airtoground2()
+            {
+             document.getElementById("loadoutpic").src="img/f16airtog2.png";
+             document.getElementById("load_table_h3").textContent="A-G Load Out 2";
+             document.getElementById("agbutton2").style.backgroundColor='#7ec2ef';
+             document.getElementById("r1_station9").textContent="AIM-9";                           
+             document.getElementById("r3_station7").textContent="MK-84L";
+             document.getElementById("r4_station4").textContent="MK-84A";
+             document.getElementById("r5_station5").textContent="370 G Fuel Tank";
+             document.getElementById("r4_station6").textContent="MK-84A";             
+             document.getElementById("r3_station3").textContent="MK-84L";
+             document.getElementById("r1_station1").textContent="AIM-9";
+             document.getElementById("munitions").style.color="#e8f2fd";
+             document.getElementById("munitions").textContent="Munitions Weight: 10066 Ib";
+             document.getElementById("fuel").style.color="#e8f2fd";
+             document.getElementById("fuel").textContent="Fuel Weight: 7964 Ib";
+             document.getElementById("grossnumber").value=viperag2gross.gross();
+                        
+            }
+            
+            function airtoground2empt()
+            {
+             document.getElementById("loadoutpic").src="img/f16empty.png";
+             document.getElementById("load_table_h3").textContent="Clean";
+             document.getElementById("agbutton2").style.backgroundColor='#ffffff';            
+             document.getElementById("r1_station9").textContent="*";                          
+             document.getElementById("r3_station7").textContent="*";
+             document.getElementById("r4_station4").textContent="*";
+             document.getElementById("r5_station5").textContent="*";
+             document.getElementById("r4_station6").textContent="*";             
+             document.getElementById("r3_station3").textContent="*";
+             document.getElementById("r1_station1").textContent="*"; 
+             
+              document.getElementById("munitions").style.color="#84f924";
+             document.getElementById("munitions").textContent="Munitions Weight: 0 Ib";
+             document.getElementById("fuel").style.color="#84f924";
+             document.getElementById("fuel").textContent="Fuel Weight: 5924 Ib"; 
+             document.getElementById("grossnumber").value="";  
+            }
+        
+        document.getElementById("ag3").onmouseover = function(){airtoground3()};
+        document.getElementById("ag3").onmouseout = function(){airtoground3empt()};
+       
+        function airtoground3()
+            {
+             document.getElementById("loadoutpic").src="img/f16airtog3.png";
+             document.getElementById("load_table_h3").textContent="A-G Load Out 3";
+             document.getElementById("agbutton3").style.backgroundColor='#7ec2ef';
+             document.getElementById("r1_station9").textContent="AIM-9";                                        
+             document.getElementById("r3_station7").textContent="GBU-32 x 2";
+             document.getElementById("r4_station6").textContent="370 G Fuel Tank";
+             document.getElementById("r4_station4").textContent="370 G Fuel Tank";
+             document.getElementById("r3_station3").textContent="GBU-32 x 2";                        
+             document.getElementById("r1_station1").textContent="AIM-9";
+             document.getElementById("munitions").style.color="#e8f2fd";
+             document.getElementById("munitions").textContent="Munitions Weight: 7348 Ib";
+             document.getElementById("fuel").style.color="#e8f2fd";
+             document.getElementById("fuel").textContent="Fuel Weight: 10956 Ib";
+             document.getElementById("grossnumber").value=viperag3gross.gross();
+            }
+        
+         function airtoground3empt()
+         {           
+             document.getElementById("loadoutpic").src="img/f16empty.png";
+             document.getElementById("load_table_h3").textContent="Clean";
+             document.getElementById("agbutton3").style.backgroundColor='#ffffff';
+             document.getElementById("r1_station9").textContent="*";                                      
+             document.getElementById("r3_station7").textContent="*";
+             document.getElementById("r4_station6").textContent="*";
+             document.getElementById("r4_station4").textContent="*";
+             document.getElementById("r3_station3").textContent="*";                        
+             document.getElementById("r1_station1").textContent="*";
+             
+              document.getElementById("munitions").style.color="#84f924";
+             document.getElementById("munitions").textContent="Munitions Weight: 0 Ib";
+             document.getElementById("fuel").style.color="#84f924";
+             document.getElementById("fuel").textContent="Fuel Weight: 5924 Ib";
+             document.getElementById("grossnumber").value="";
+         }
+        
+        
+        document.getElementById("cle").onmouseover = function(){empty_butshowcleangross()};
+        document.getElementById("cle").onmouseout = function(){empty()};
+        
+		function empty_butshowcleangross()
+            {
+             document.getElementById("loadoutpic").src="img/f16empty.png";
+             document.getElementById("load_table_h3").textContent="Clean";
+             
+              document.getElementById("munitions").style.color="#84f924";
+             document.getElementById("munitions").textContent="Munitions Weight: 0 Ib";
+             document.getElementById("fuel").style.color="#84f924";
+             document.getElementById("fuel").textContent="Fuel Weight: 5924 Ib";
+              document.getElementById("grossnumber").value=vipercleangross.gross();//populate grossweight digits into text box  
+            }
+            
+           function empty()
+            {
+             document.getElementById("loadoutpic").src="img/f16empty.png";
+             document.getElementById("load_table_h3").textContent="Clean";
+             
+              document.getElementById("munitions").style.color="#84f924";
+             document.getElementById("munitions").textContent="Munitions Weight: 0 Ib";
+             document.getElementById("fuel").style.color="#84f924";
+             document.getElementById("fuel").textContent="Fuel Weight: 5924 Ib";
+             document.getElementById("grossnumber").value="";  
+            }
+          
+ 		</script>
+	
+	
+		
+<!--<audio autoplay="">
+		    <source src="f16 flyby.mp3" type="audio/mp3"></source>
+		    Your browser does not support the audio element.
+		    
+</audio>-->
+
+<!---------------------------Gauges html starting here, for now do not remove these syntax from Hangar page, just hide the divs------------------------------>
+
+<!--also see CSS syntax about gauges size under body tag. also see js sheet for more options-->
+<div id="g1" class="center" style="visibility: hidden"></div>
+    <div id="g2" style="visibility: hidden"></div>
+    <div id="g3" style="visibility: hidden"></div>
+    <div id="g4" style="visibility: hidden"></div>
+    <div id="g5" style="visibility: hidden"></div>
+    <div id="g6" style="visibility: hidden"></div><!--modify individual guage--->
+<!---------------------------Gauges html ends here------------------------------>
+	</div><!--wrap entire page ends-->
+	</body>
+	<script type="text/javascript">
+          //////////ejection sign to close current page starts here///////
+//only works in Safari and FF
+function closeCurrentpage()
+{
+var c=confirm("Thank You for visiting! Please confirm leaving the current page");
+var win = window.open("","_self");
+
+if(c==true)
+{win.close();} 
+
+
+}
+//////////ejection sign ends here///////
+      </script>
+</html>

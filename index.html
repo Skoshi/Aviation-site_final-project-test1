@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+
+        <!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame
+        Remove this if you use the .htaccess -->
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        
+
+        <title>Homeairbase_Spike Final Project June 2015 DaVinci Coders javaScript</title>
+        <meta name="description" content="Glasspit, Glass Cockpit, justGauge.com">
+        <meta name="author" content="HTsao">
+        
+        <meta name="viewport" content="width=device-width; initial-scale=1.0">
+      <link href="GlassPitstylesheet.css" rel="stylesheet" type="text/css" />
+      <style>
+       </style>
+         
+        <script src="resources/jssheets/raphael.2.1.0.min.js"></script><!--link to justGage .js file-->
+        <script src="resources/jssheets/justgage.1.0.1.min.js"></script><!--link to justGage .js file-->  
+         <script src="resources/jssheets/jquery-2.1.4.js"></script><!--for jQuery-->
+         <script src="jquery-ui 1.11.4.js"></script><!--for jQuery UI library on this pc-->
+        <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"type="text/javascript"></script><!--for link to jQuery UI external library-->
+        
+         <script src="resources/jssheets/spikesheet05202015.js"></script><!--link to spikesheet05202015.js file. keep this syntax underneath justGauge's js links -->
+         
+         <script type="text/javascript">
+        
+        </script>
+       
+        
+    </head>
+    
+
+<body style="min-width: 750px;"onload="gmtClock()">
+    <div id="wrapper"><!--wrap entire page-->
+<!--set all table/div fixed width to prevent resizing issues. have to use inline width syntax, otherwise, it won't work-->
+ <div id="patch_table" align="center" style="width: 1390px; text-align: center"><!--adjust width of this div if necessary to bring logo to center-->
+    
+   <div id="patchdivcenter" align="center">   <h3 id="homeairbase_h3" align="center" style="color: #fed230">48TH FT SQ<br><a class="no_blank" href="index.html" ><img id="imgtest" width="100px" height="110px" align="center" src="img/patch_1.png" /></a><br>THE SOUND OF FREEDOM<br>
+        <div class="clock" align="center" style="vertical-align: top"><!--date and clock html starts here-->
+            <div id="Date"></div>
+            <ul>
+      <li id="hours"></li>
+      <li id="point">:</li>
+      <li id="min"></li>
+      <li id="point">:</li>
+      <li id="sec"></li>
+      <li id="zulu_text"> = ZULU</li>
+       
+      <li id="clockForm"></li>       
+             </ul>
+            </div>
+   </h3></div>
+  </div>
+<div id="loginmenu" class="loginmenu_class">
+    <ul id="loginul_nav" style="text-align: left; margin-left: 42px">
+        <li id="btnLogin" class="loginli_class"><a href="Login.html">Login</a></li>
+        <li id="btnLogin" class="loginli_class" style="margin-left: 30px"><a href="Register.html">Register</a></li>
+    </ul>
+    
+</div>
+ 
+<!--top message board table starting here-->
+<table id="eyebrow_messageboard" width="1350px" align="center" height="40px" border="1">
+    <tr id="eyebrow_messagerow" class="class_blue" height="40px">
+        
+        <td id="ejection_signtd" width="60px"> <img id="ejection_sign_img" onclick="closeCurrentpage();" alt="Ejection Sign" src="img/ejection seat sign.png" width="55px" height="48px" /></td>
+        <td id="eyebrow_td_1" class="greybackgroundc" width="123px"><p id="eyebrow_iconbase" align="center"><a class="no_blank" href="index.html" ><input id="airbasebut" class="eyebrowbtns" type="button" value="HOME AIR BASE"/></a></P></td>
+        <td id="eyebrow_td_2" class="greybackgroundc" width="123px"><p id="eyebrow_iconbase" align="center"><a class="no_blank" href="Hangar.html"><input id="hangarbut" class="eyebrowbtns" type="button" value="HANGAR"/></a></P></td>
+        
+        <td id="eyebrow_td_middle" width="700px"><p id="eyebrow_parap" class="eyebrow_paraclass"></p></td>
+        
+        <td id="eyebrow_td_3" class="greybackgroundc" width="123px"><p id="eyebrow_iconbase" align="center"><a class="no_blank" href="powerplant.html"><input id="powerplantbut" class="eyebrowbtns" type="button" value="POWER PLANT"/></a></P></td>
+        <td id="eyebrow_td_4" class="greybackgroundc" width="123px"><p id="eyebrow_iconbase" align="center"><a class="no_blank" href="Pilotsclub.html"><input id="pilotsclubbut" class="eyebrowbtns" type="button" value="PILOTS CLUB"/></a></P></td>
+        <td id="ejection_signtd" width="60px"> <img id="ejection_sign_img" onclick="closeCurrentpage()" alt="Ejection Sign" src="img/ejection seat sign.png" width="55px" height="48px" /></td>
+    </tr>
+    
+</table><!--top message board table ends here-->
+
+<table id="spikeaviation_paratable" class="subtitletb" width="1350px" height="5px" align="center">
+       <tr class="subtitletb"><td class="subtitletb" align="center">
+    <p id="flightline_h3" class="subtitlep" align="center">SPIKE'S AVIATION FAN CLUB</p>
+    
+    </td></tr>
+   </table>     
+    
+<!--main monitor table starts here--keep width fixed px for better resize with all other tables . use neon green or gray border color for this table, see css sheet -->     
+<table id="homeairbasemain_monitortable" class="class_gray" width="1350px" height="563px" align="center"  border="0.3px" style=" min-width: 1350; max-width: 1350; min-height: 570; max-height: 570; table-layout: fixed">
+        <!--if need to align tb content to top, use valign="top"-->
+        <tr id="homeairbasemain_monitortr" class="class_gray">
+<!--width of img inside span has to be wide enough to push the text to the top-->            
+<!--span test 1--><td id="homeairbasemonitor_left1td" width="337.5px"  style="vertical-align: top"><p id="homeairbasemfdL1" class="mfdclass"><a href="">Airplane Of The Month F20 Tigershark</a><br><br>
+                    <span id="spantest1_1" style="display: inline-block; width: 335px; border: 0.5px solid #fed230; background-color: black; border-radius: 3px; cursor:pointer; margin: 0px">A beast who was never given a chance<img id="f20cockpitopen_1" src="img/f20_mycollection_3 resized small.png" width="322px" height="148px"/></span>
+                      <span id="spantest1_2" style="display: inline-block; width: 335px; border: 0.5px solid #fed230; background-color: black; border-radius: 3px; cursor:pointer; margin: 0px">Faster scramble time than the F-16<img id="f20scramble_1" src="img/f20_mycollection_5 resize small.png" width="322px" height="170px"/></span>
+                         <span id="spantest1_3" style="display: inline-block; width: 335px; border: 0.5px solid #fed230; background-color: black; border-radius: 3px; cursor:pointer; margin: 0px">Aerodynamics sleek design<img id="f20frontview_1" src="img/f20_mycollection_2 resize small.png" width="322px" height="150px"/></span>
+                         </p></td><!--span test 1 ends-->
+           
+<!--span test 2--><td id="homeairbasemonitor_left2td" width="337.5px" style="vertical-align: top"><p id="homeairbasemfdL2" class="mfdclass"><a class="no_blank" href="Hangar.html">F16 BL 50 Payload</a><br><br>
+                   <span id="spantest2_1" style="display: inline-block; width: 335px; border: 0.5px solid #fed230; background-color: black; border-radius: 3px; cursor:pointer; margin: 0px">A-G<img id="f16airtog1small_1" src="img/f16airtog1.png" width="330px" height="105px" /></span>
+                    <span id="spantest2_2" style="display: inline-block; width: 335px; border: 0.5px solid #fed230; background-color: black; border-radius: 3px; cursor:pointer; margin: 0px">A-A<img id="f16airtoa1small_1" src="img/f16airtoair1.png" width="330px" height="110px" /></span>
+                     <span id="spantest2_3" style="display: inline-block; width: 335px; border: 0.5px solid #fed230; background-color: black; border-radius: 3px; cursor:pointer; margin: 0px">A-G<img id="f16airtog2small_2" src="img/f16airtog2.png" width="330px" height="110px" /></span>
+                    <span id="spantest2_4" style="display: inline-block; width: 335px; border: 0.5px solid #fed230; background-color: black; border-radius: 3px; cursor:pointer; margin: 0px">A-A<img id="f16airtoa2small_2" src="img/f16airtoair2.png" width="330px" height="110px" /></span>
+                
+                    
+                </p></td><!--span test 2 ends-->
+    
+<!--span test 3--><td id="homeairbasemonitor_right2td" width="337.5px" style="vertical-align: top"><p id="homeairbasemfdR2" class="mfdclass"><a class="no_blank" href="powerplant.html"> ALL About The Engines</a><br><br>
+                <span id="spantest3_1" style="display: inline-block; width: 335px; border: 0.5px solid #fed230; background-color: black; border-radius: 3px; cursor:pointer; margin: 0px">Jet Engine<img id="jetenginesmall_1" src="img/jet_engine small.png" width="325px" height="105px" /></span>
+                <span id="spantest3_2" style="display: inline-block; width: 335px; border: 0.5px solid #fed230; background-color: black; border-radius: 3px; cursor:pointer; margin: 0px">Turbo Reacteur<img id="jetenginesmall_2" src="img/Turboreacteur_anime.gif" width="320px" height="110px" /></span>
+        
+                <span id="spantest3_3" style="display: inline-block; width: 335px; border: 0.5px solid #fed230; background-color: black; border-radius: 3px; cursor:pointer; margin: 0px">Axial Compressor Animation<img id="jetengineaxialsmall_1" src="img/jet engine_Axial_compressor.gif" width="320px" height="105px" /></span>
+                
+                
+              <span id="spantest3_4" style="display: inline-block; width: 335px; border: 0.5px solid #fed230; background-color: black; border-radius: 3px; cursor:pointer; margin: 0px">Gauges
+  <!--//////////////Gauges html starting here-->
+        <!--for Homeairbase site,  gauges syntax needs to be inluded here in order to prevent Chrome error message "localhost says", 
+            just style all divs below to display:none so they won't show up in the browser-->
+<!--also see CSS syntax about gauges size. also see js sheet for more options-->
+               <div id="g1" class="gaugeoption1"></div>
+                <div id="g2" class="gaugeoption1"></div>
+                <div id="g3" class="gaugeoption1"></div> 
+                <div id="g4" class="gaugeoption1"></div>
+                <div id="g5" class="gaugeoption1"></div>
+                <div id="g6" class="gaugeoption1"></div>
+<!--Gauges html ends here-->
+                </span>
+                </p></td><!--span test 3 ends-->
+  
+<!--span test 4--><td id="homeairbasemonitor_right1td" width="337.5px" style="vertical-align: top"><p id="homeairbasemfdR1" class="mfdclass"><a class="no_blank" href="Pilotsclub.html">BOOKS VIDEOS & LINKS</a><br><br>
+                
+                
+                 <span id="spantest4_1" style="display: inline-block; width: 320px; border: 0.5px solid #fed230; background-color: black; border-radius: 3px; cursor:pointer; margin: 0px">Dogfight Bud Anderson's P51<iframe width="300" height="200" src="https://www.youtube.com/embed/spOlkk205Qk" frameborder="0" allowfullscreen></iframe></span><br>
+                <span id="spantest4_2" align="center" style="  display: inline-block; width: 320px; height: 30px; background-color: black; border-radius: 3px; cursor:pointer; margin: auto; text-wrap: none; text-align: center">
+                 <a href=" http://amzn.com/0553292404 " target="_blank"><img align="left" src="img/amazon-2-icon.png" width="20" height="20" /></a><a href=" http://amzn.com/0553292404" target="_blank">To Fly and Fight: Memoris of a Triple Ace (Bantam Air & Space Series)</a></span>
+              
+                
+                
+                 <span id="spantest4_3" style="display: inline-block; width:320px; border: 0.5px solid #fed230; background-color: black; border-radius: 3px; cursor:pointer; margin: 0px">Franz Stigler and Charlie Brown<iframe width="300" height="200" src="https://www.youtube.com/embed/_8EkmyoG83Q" frameborder="0" allowfullscreen><p>Your browser does not support iframes.</p></iframe></span>
+                <span id="spantest4_4" align="center" style="  display: inline-block; width: 320px; height: 30px; background-color: black; border-radius: 3px; cursor:pointer; margin: auto; text-wrap: none; text-align: center">
+                 <a href="http://amzn.com/0425255735 " target="_blank"><img align="left" src="img/amazon-2-icon.png" width="20" height="20" /></a><a href="http://amzn.com/0425255735 " target="_blank">A Higher Call: A True Story of Combat and Chivalry in the War-Torn Skies of WWII</a></span>
+              
+               </p></td><!--span test 4 ends-->
+                
+            </tr>
+</table><!--main monitor table ends here-->
+
+<!--center btn group one table starts here-->
+<table id="center_btngroup_one" width="1350px" align="center" height="45px" style="background-color: #fdd144">
+    <tr id="center_btngroup_one_btntr" class="class_neonGreen" style="background-color: #fdd144">
+                <td id="center_btngroup_one_btntd" width="1350px">
+               
+                <button id="mainpower_on_btn" class="" type="button" >MAIN PWR ON</button>
+                <button id="power_on_mfdL"  class="mfdpowerbtns" type="button" onclick="" align="center">L MFD POWER ON</button>
+                <button id="power_off_mfdL" class="mfdpowerbtns" type="button">L MFD POWER OFF</button>
+                <button id="power_off_mfdR" class="mfdpowerbtns" type="button" onclick="">R MFD POWER OFF</button>
+                <button id="power_on_mfdR"  class="mfdpowerbtns" type="button">R MFD POWER ON</button>
+                <button id="mainpower_off_btn" type="button">MAIN PWR OFF</button>
+               
+</table><!--center btn group one table ends here-->
+
+<!--lower central monitor table starts here-->
+<table id="lower_center_table" width="1350px" align="center" height="550px" border="">
+            <tr id="lower_center_tabletr" class="class_gray" width="100%" align="center">
+              <td id="lower_Lefttd" width="10%" height="550px" style="vertical-align: top"><p style=" color: #439cbd; padding: 0px; margin: 0px">Links<br>
+                  <a class="linkstyle_white" title="support our troops" href="http://supportourtroops.org/" target="_blank">* Support Our Troops</a><br><br>
+                     <a class="linkstyle_white" title="falcon4 BMS" href="http://www.bmsforum.org/forum/content.php" target="_blank">* Falcon BMS: Viper Simulation</a><br><br>
+                     <a class="linkstyle_white" title="viperpits" href="http://www.viperpits.org/smf/index.php" target="_blank">* Viperpits.org: Learn to build a F-16 simulator from scratch</a><br><br>
+                     <a class="linkstyle_white" title="dcs" href="http://www.digitalcombatsimulator.com/en/" target="_blank">* Digital Combat Simulator: Leader in Military-grade Combat Simulators</a><br><br>
+                     <a  class="linkstyle_white" title="virtualTB" href="http://www.virtualthunderbirds.com/" target="_blank">* Virtual Thunderbirds: Virtual Equivalent of The USAF Thunderbirds</a><br><br>
+                     <a class="linkstyle_white" title="virtualBlueA" href="http://virtualblueangels.com/" target="_blank">* Virtual Blue Angels: Virtual Equivalent of The US Navy Blue Angels</a><br><br>
+                     <a class="linkstyle_white" title="virtual56th" href="http://www.thunderboltsvfw.com/forum/content.php?5-home_1" target="_blank">* 56th Virtual Fighter Wing</a><br><br>
+                  <a class="linkstyle_white" title="wingsoverther" href="http://wingsmuseum.org/?gclid=CPbQvs6R_8UCFQuMaQodOXwApQ" target="_blank">* Wings Over The Rockies</a><br><br>
+                  <a class="linkstyle_white" title="f16.net" href="http://www.f-16.net/">* F-16.net</a><br>
+                  <a class="linkstyle_white" href="http://feeds.feedburner.com/F-16FightingFalconNews"><img src="http://www.f-16.net/graphics/rss/f-16_rss_feed.gif" /></a><br>
+                 <a class="linkstyle_white" href="http://feeds.feedburner.com/F-22RaptorNews"><img src="http://www.f-16.net/graphics/rss/f-22_rss_feed.gif" /></a><br>
+                 <a class="linkstyle_white" href="http://feeds.feedburner.com/F-35JSFNews"><img src="http://www.f-16.net/graphics/rss/f-35_rss_feed.gif" /></a>
+                 
+              </p></td>
+                  
+                  
+     <!--slide show---> <td id="lower_center_monitortd" width="80%" align="center" style="padding: 0px; margin: 0px; vertical-align: top">
+                   <p id="homeairbase_lowercentermonitorpara" style="vertical-align:top; padding: 0px; margin: 0px"></p>
+                 
+                 <ul style="padding: 0px; margin: none">
+            <li align="center"><img src="img/img1.JPG" width="1070px" height="550px" align="center"/></li><!--make sure it's wide enough to show arrow buttons-->
+            <li align="center"><img src="img/img2.JPG" width="1070px" height="550px" align="center"/></li>
+            <li align="center"><img src="img/img3.JPG" width="1070px" height="550px" align="center"/></li>
+            <li align="center"><img src="img/f16bms1.png" width="1070px" height="550px" align="center"/></li>
+             <li align="center"><img src="img/f16bms2.png" width="1070px" height="550px" align="center"/></li>
+            <li align="center"><img src="img/f16bms3.png" width="1070px" height="550px" align="center"/></li>
+            <li align="center"><img src="img/f16bms4.png" width="1070px" height="550px" align="center"/></li>
+             <li align="center"><img src="img/f16bms5.png" width="1070px" height="550px" align="center"/></li>
+            <li align="center"><img src="img/f16bms6.png" width="1070px" height="550px" align="center"/></li>
+            <li align="center"><img src="img/f16bms7.png" width="1070px" height="550px" align="center"/></li>
+            <li align="center"><img src="img/F9F_1.png" width="1070px" height="550px" align="center"/></li>
+            <li align="center"><img src="img/F9F_2.png" width="1070px" height="550px" align="center"/></li>
+     
+     
+      </ul>
+      <span class="button prevButton"></span>
+      <span class="button nextButton"></span>
+             </p>     
+                </td>
+                
+        <td id="lower_Righttd" width="10%" height="550px"  style="vertical-align: top; padding: 0px"><p style=" color: white; padding: 0px; margin: 0px">
+                <a href="img1.JPG" target="_blank"><img src="img/img1.JPG" width="130px" height="47px" align="center"/><a>
+                  <a href="img2.JPG" target="_blank"><img src="img/img2.JPG" width="130px" height="47px" align="center"/><a>
+                  <a href="img3.JPG" target="_blank"><img src="img/img3.JPG" width="130px" height="47px" align="center"/><a>
+                  <a href="f16bms1.png" target="_blank"><img src="img/f16bms1.png" width="130px" height="47px" align="center"/><a>
+                  <a href="f16bms2.png" target="_blank"><img src="img/f16bms2.png" width="130px" height="47px" align="center"/><a>
+                 <a href="f16bms3.png" target="_blank"><img src="img/f16bms3.png" width="130px" height="47px" align="center"/><a>
+                <a href="f16bms4.png" target="_blank"> <img src="img/f16bms4.png" width="130px" height="47px" align="center"/><a>
+                 <a href="f16bms5.png" target="_blank"><img src="img/f16bms5.png" width="130px" height="47px" align="center"/><a>
+               <a href="f16bms6.png" target="_blank"> <img src="img/f16bms6.png" width="130px" height="47px" align="center"/><a>
+               <a href="f16bms7.png" target="_blank"> <img src="img/f16bms7.png" width="130px" height="47px" align="center"/><a>
+               <a href="F9F_1.png" target="_blank"><img src="img/F9F_1.png" width="130px" height="47px" align="center"/><a>
+               <a href="F9F_2.png" target="_blank"><img src="img/F9F_2.png" width="130px" height="47px" align="center"/><a>
+                     
+               </p></td>
+            </tr>
+</table><!--lower center table ends here-->
+
+      
+</div><!--wrap entire page ends-->
+    </body>
+    <script type="text/javascript">
+          //////////ejection sign to close current page starts here///////
+//only works in Safari and FF
+function closeCurrentpage()
+{
+var c=confirm("Thank You for visiting! Please confirm leaving the current page");
+var win = window.open("","_self");
+
+if(c==true)
+{window.close();} 
+}
+//////////ejection sign ends here///////
+      </script>
+    
+  
+</html>
